@@ -11,3 +11,8 @@ Classic hangman is a guessing game where a word or phrase is given with each of 
 In order to play, you will need to either generate a random word or phrase to start, or accept input to select one. The word or phrases's letters will have to be replaced by blanks. You will need to receive guesses from the player, determine whether a guess is correct or incorrect, and decide when the game ends, either by a win or a loss.
 
 To start, you have a file called snowman_image.txt that you can use as your starting state. You can decide how to display the image and how to remove lines of the snowman when the player answers incorrectly.
+
+
+## Using files/Gems
+
+Currently using [Mieliestronk's list of more than 58 000 English words](http://www.mieliestronk.com/wordlist.html)
