@@ -16,3 +16,4 @@ To start, you have a file called snowman_image.txt that you can use as your star
 ## Using files/Gems
 
 Currently using [Mieliestronk's list of more than 58,000 English words](http://www.mieliestronk.com/wordlist.html)
+This branch also makes use of [catpix](https://github.com/pazdera/catpix)
