@@ -1,3 +1,86 @@
+SNOWMAN=[
+'        ________
+        |      |
+        |      |
+     <============>
+       /       \
+      |   * *   |
+      |    =>   |
+       \  `---` /
+\|/     -------     \|/
+ \    /    *    \    /
+  \===     *     ===/
+     |     *     |
+      \         /
+       ---------
+      /    *    \
+     /     *     \
+    |      *      |
+    |             |
+     \           /
+      \_________/
+',
+'        ________
+        |      |
+        |      |
+     <============>
+       /       \
+      |   * *   |
+      |    =>   |
+       \   ---  /
+\|/     -------     \|/
+ \    /    *    \    /
+  \===     *     ===/
+     |     *     |
+      \         /
+       ---------
+',
+'        ________
+        |      |
+        |      |
+     <============>
+       /  \ /  \
+      |   * *   |
+      |    =>   |
+       \  (===) /
+\|/     -------
+ \    /    *    \
+  \===     *     |
+     |     *     |
+      \         /
+       ---------
+',
+'        ________
+        |      |
+        |      |
+     <============>
+       /  \ /  \
+      |   * *   |
+      |    =>   |
+       \  (===) /
+        -------
+      /    *    \
+     |     *     |
+     |     *     |
+      \         /
+       ---------
+',
+'        ________
+        |      |
+        |      |
+     <============>
+       /       \
+      |   - -   |
+      |    =>   |
+       \   ~~~  /
+        -------
+',
+'        ________
+        |      |
+        |      |
+     <============>
+']
+
 def getWord()
 	File.open("./corncob_lowercase.txt"){|f|
 		line=nil
@@ -6,22 +89,32 @@ def getWord()
 		return line.chomp()
 	}
 end
-word=getWord #Word we are guessing
-current=word#Our current working word
-
-
-
-(0..4).each{|i|
-	puts current
-	print "Guess #{i+1}: "
-	guess=gets
-	guess=guess[0]
-	if current.include? guess.downcase
-		current.delete!(guess)
-		if(current=="")
-			break
-		else
-			redo
+def snowmanEngine(word)
+	current=word.dup#Our current working word
+	(0..4).each{|i|
+		system("clear")
+		puts SNOWMAN[i]
+		puts word.tr(current,'_')
+		print "Guess #{i+1}: "
+		guess=gets
+		guess=guess[0]
+		if current.include? guess.downcase
+			current.delete!(guess)
+			if(current=="")
+				return true
+			else
+				redo
+			end
 		end
-	end
-}
+	}
+	return false
+end
+word=getWord #Word we are guessing
+puts word
+if snowmanEngine(word)
+	puts "Congrats! the correct answer was #{word}"
+else
+	system("clear")
+	puts SNOWMAN[5]
+	puts "awww ... you were so close! the correct answer was #{word}"
+end
